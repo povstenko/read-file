@@ -1,0 +1,48 @@
+[Project]
+Assembler=Masm
+Type=Win32 App (no res)
+Description=read-file
+Backup=$P\Bak\
+Group=1
+GroupExpand=1
+[Files]
+1=read-file.Asm
+2=read-file.Inc
+[MakeFiles]
+0=read-file.rap
+1=read-file.rc
+2=read-file.asm
+3=read-file.obj
+4=read-file.res
+5=read-file.exe
+6=read-file.def
+7=read-file.dll
+8=read-file.txt
+9=read-file.lib
+10=read-file.mak
+11=read-file.hla
+12=read-file.com
+13=read-file.ocx
+14=read-file.idl
+15=read-file.tlb
+[MakeDef]
+Menu=0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0
+1=4,O,$B\RC.EXE /v,1
+2=3,O,$B\ML.EXE /c /coff /Cp /nologo /I"$I",2
+3=5,O,$B\LINK.EXE /SUBSYSTEM:WINDOWS /RELEASE /VERSION:4.0 /LIBPATH:"$L" /OUT:"$5",3
+4=0,0,,5
+5=rsrc.obj,O,$B\CVTRES.EXE,rsrc.res
+6=*.obj,O,$B\ML.EXE /c /coff /Cp /nologo /I"$I",*.asm
+7=0,0,"$E\OllyDbg",5
+[Resource]
+[StringTable]
+[Accel]
+[VerInf]
+[Group]
+Group=Added files,Assembly,Resources,Misc,Modules
+1=2
+2=2
+[AutoLoad]
+AutoLoad=
+[RADebugBP]
+1=
